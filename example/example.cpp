@@ -18,6 +18,7 @@ using namespace std;
 
 int main()
 {
+  Caffe::set_mode(Caffe::CPU);
   SuperPoint superpoint = SuperPoint("../model/superpoint.prototxt", "../model/superpoint.caffemodel", 200);
 
   cv::Mat image = cv::imread("../data/example.png", 0);

@@ -36,7 +36,7 @@ endif()
 
 include_directories(
 ${PROJECT_SOURCE_DIR}/include/
-/home/yuchao/caffe-ssd/include/ 
+/home/yujc/robotws/caffe-ssd/include/ 
 /usr/local/include 
 /usr/local/cuda/include
 ) 

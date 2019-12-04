@@ -10,7 +10,7 @@ class min_heap_t;
 
 SuperPoint::SuperPoint(const std::string& model_file, const std::string& trained_file, int keep_k_points):KEEP_K_POINTS(keep_k_points)
 {
-    caffe::Caffe::set_mode(caffe::Caffe::GPU);
+    caffe::Caffe::set_mode(caffe::Caffe::CPU);
     net_.reset(new caffe::Net<float>(model_file, caffe::TEST));
     net_->CopyTrainedLayersFrom(trained_file);
     caffe::Blob<float>* input_layer = net_->input_blobs()[0];
@@ -209,6 +209,7 @@ int SuperPoint::ExactSP(const cv::Mat& image, std::vector<cv::KeyPoint>& kpts, s
 
         kpts[i].angle = SP_Angle(image_angle, kpts[i], umax); //20190511 zoe
         kpts[i].octave = 0;
+        kpts[i].response = tmp_point[i].semi;
 
         std::vector<float> dspt;
         dspt.resize(D);
