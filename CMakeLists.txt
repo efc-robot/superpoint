@@ -10,6 +10,12 @@ MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -Wall  -O3 -march=native ")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall   -O3 -march=native")
 
+SET(CPU_ARCH x86_64)
+SET(CAFFE_DIR /home/yujc/robotws/caffe-ssd/) #选择caffe路径
+
+SET(GLOG_BOOST_LIBS /usr/lib/${CPU_ARCH}-linux-gnu/libglog.so /usr/lib/${CPU_ARCH}-linux-gnu/libboost_system.so)
+
+
 # Check C++11 or C++0x support
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
@@ -36,7 +42,7 @@ endif()
 
 include_directories(
 ${PROJECT_SOURCE_DIR}/include/
-/home/yujc/robotws/caffe-ssd/include/ 
+${CAFFE_DIR}/include/ 
 /usr/local/include 
 /usr/local/cuda/include
 ) 

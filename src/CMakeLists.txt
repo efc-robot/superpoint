@@ -4,7 +4,6 @@ add_library(${PROJECT_NAME} SHARED ${SRC_LIST})
 
 target_link_libraries(${PROJECT_NAME}
 ${OpenCV_LIBS}
-/home/yujc/robotws/caffe-ssd/build/lib/libcaffe.so
-/usr/lib/x86_64-linux-gnu/libglog.so
-/usr/lib/x86_64-linux-gnu/libboost_system.so
+${CAFFE_DIR}/build/lib/libcaffe.so
+${GLOG_BOOST_LIBS}
 )
