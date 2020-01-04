@@ -10,7 +10,6 @@ class min_heap_t;
 
 SuperPoint::SuperPoint(const std::string& model_file, const std::string& trained_file, int keep_k_points):KEEP_K_POINTS(keep_k_points)
 {
-    caffe::Caffe::set_mode(caffe::Caffe::CPU);
     net_.reset(new caffe::Net<float>(model_file, caffe::TEST));
     net_->CopyTrainedLayersFrom(trained_file);
     caffe::Blob<float>* input_layer = net_->input_blobs()[0];
